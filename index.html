@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    
+    <input type="number" placeholder="enter the no." class="input">
+    <button class="button1" title="click" onclick="func1()">confirm</button>
+    <p class="p">
+
+    </p>
+    <script>
+        let input=document.querySelector(`.input`);
+        
+
+        let round = 2;
+        let a = 1;
+        let b = 9;
+        let c = 0;
+        let d = 10;
+        let i = 1;
+        function func1() {
+          
+            let computer = Math.random()*50;
+            computer = Number.parseInt(computer);
+            if (c == 1) {
+                a = 1;
+                d = 8;
+                b = 7;
+                i++;
+            }
+            else if (c == 2) {
+                a = 1;
+                d = 6;
+                b = 5;
+                i++;
+            }
+
+
+            while (a != d) {
+                
+                let player_move = prompt(`level ${i} : enter the no. you have ${b--} moves remaining`);
+               
+               
+                player_move = Number.parseInt(player_move);
+                if (player_move > computer) {
+                    a++;
+                    if (c == 0) {
+                        if (a < 10)
+                            console.log(`the no. is smaller, proceed for chance ${a}`);
+                    }
+
+                    else if (c == 1) {
+                        if (a <= 7)
+                            console.log(`the no. is smaller, proceed for chance ${a}`);
+                    }
+
+                    else if (c == 2) {
+                        if (a <= 5)
+                            console.log(`the no. is smaller, proceed for chance ${a}`);
+                    }
+                }
+                else if (player_move < computer) {
+                    a++;
+                    if (c == 0) {
+                        if (a < 10)
+                            console.log(`the no. is bigger, proceed for chance ${a}`);
+                    }
+
+                    else if (c == 1) {
+                        if (a <= 7)
+                            console.log(`the no. is bigger, proceed for chance ${a}`);
+                    }
+
+                    else if (c == 2) {
+                        if (a <= 5)
+                            console.log(`the no. is bigger, proceed for chance ${a}`);
+                    }
+                }
+                else if (player_move == computer) {
+                    console.log(`CONGRATULATIONS the Number matched the no. was(${computer}) in ${a} moves`);
+                    c++;
+                    if (a <= 3) {
+                        console.log(`excillent`);
+                    }
+                    else if (a > 3 && a <= 7) {
+                        console.log(`nice`);
+                    }
+                    else {
+                        console.log(`not bad but not good`);
+                    }
+                    if (c < 3) {
+                        console.log(`get ready for round ${round++}`);
+                    }
+                    if (c < 3) {
+                        func1();
+                    }
+
+                    break;
+                }
+                else {
+                    console.log(`you loose`);
+                    break;
+
+                }
+
+            }
+            if (a == 10 && a == 8 && a == 6) {
+                console.log(`Moves finished, you loose better luck next time`);
+            }
+        }
+        
+
+
+    </script>
+</body>
+
+</html>
